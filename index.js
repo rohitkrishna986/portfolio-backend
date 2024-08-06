@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Middleware to handle CORS
 app.use(cors({
-    origin: "https://rohit-portfolio-two.vercel.app/",
+    origin: "https://rohit-portfolio-two.vercel.app",
     credentials: true
 }));
 
