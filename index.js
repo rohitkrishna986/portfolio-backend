@@ -17,6 +17,10 @@ app.use(cors({
     origin: "https://rohit-portfolio-two.vercel.app",
     credentials: true
 }));
+// app.use(cors({
+//     origin: "http://localhost:5173",
+//     credentials: true
+// }));
 
 // Middleware to parse cookies
 app.use(cookieParser());

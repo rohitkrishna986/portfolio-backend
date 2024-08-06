@@ -4,6 +4,7 @@ const getCategoryWiseProduct = async(req,res) => {
   try {
     const {category} = req?.body || req?.query
     const product = await productModel.find({category})
+    
 
     res.json({
         data: product,
