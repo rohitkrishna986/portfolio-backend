@@ -28,22 +28,18 @@ async function userSignIn(req, res) {
             _id: user._id,
             email: user.email
         };
-        const token = jwt.sign(tokenData, process.env.SECRET_KEY, { expiresIn: '8h' }); // Using string for readability
+        const token = jwt.sign(tokenData, process.env.SECRET_KEY, { expiresIn: '8h' });
 
-        // Cookie options
-        const cookieOptions = {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production', // Ensure HTTPS in production
-            sameSite: 'Strict' // Adjust based on your needs
-        };
-
-        // Set cookie and send response
-        res.cookie("token", token, cookieOptions).json({
-            message: "Logged in successfully",
-            data: token,
-            success: true,
-            error: false
-        });
+    res.cookie('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production', // Secure in production
+        sameSite: 'Strict'
+    }).json({
+        message: 'Logged in successfully',
+        data: token,
+        success: true,
+        error: false
+    });
 
     } catch (error) {
         // Error response
